@@ -6,6 +6,8 @@ import com.udc.topicos.parcial.ecobooking.ports.out.SaveBookingPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookingService implements BookingUseCase {
 
@@ -23,5 +25,10 @@ public class BookingService implements BookingUseCase {
     @Override
     public Booking getBooking(Long id) {
         return loadBookingPort.loadBooking(id);
+    }
+
+    @Override
+    public List<Booking> getAll() {
+        return loadBookingPort.loadAllBooking();
     }
 }

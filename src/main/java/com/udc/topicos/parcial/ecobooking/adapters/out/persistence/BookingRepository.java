@@ -6,6 +6,8 @@ import com.udc.topicos.parcial.ecobooking.ports.out.SaveBookingPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 @Repository
 public class BookingRepository implements SaveBookingPort, LoadBookingPort {
@@ -21,5 +23,9 @@ public class BookingRepository implements SaveBookingPort, LoadBookingPort {
     @Override
     public Booking loadBooking(Long id) {
         return jpaBookingRepository.findById(id).orElse(null);
+    }
+    @Override
+    public List<Booking> loadAllBooking(){
+        return jpaBookingRepository.findAll();
     }
 }
